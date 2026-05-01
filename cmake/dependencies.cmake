@@ -67,6 +67,11 @@ if (NOT TARGET simdjson::simdjson)
         endif ()
 
         file(LOCK "${SIMDJSON_LOCK_FILE}" RELEASE)
+
+        add_library(simdjson_in_fastgltf INTERFACE)
+        target_include_directories(simdjson_in_fastgltf INTERFACE ${SIMDJSON_DL_DIR})
+        target_sources(simdjson_in_fastgltf INTERFACE ${SIMDJSON_SOURCE_FILE})
+        add_library(simdjson::simdjson ALIAS simdjson_in_fastgltf)
     endif ()
 endif ()
 

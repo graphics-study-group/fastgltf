@@ -23,8 +23,8 @@ cmake-build-*/
 **/.DS_Store
 
 # Dependencies
-simdjson/
 deps/
+*.lock
 
 # Test files
 tests/gltf/intel_sponza
